@@ -1,4 +1,9 @@
 <?php
+session_start();
+if( !isset($_SESSION["login"])) {
+    header("location:login.php");
+    exit;
+}
 require 'fuctions.php';
 $comic = query("SELECT * FROM data_comic");
 

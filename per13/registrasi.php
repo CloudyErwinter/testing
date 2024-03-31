@@ -3,7 +3,7 @@ require 'fuctions.php';
 if( isset($_POST["register"]) ) {
     if( registrasion($_POST) > 0 ) {
         echo "<script>
-                alert('New user has been added!')
+                alert('new user has been added!')
             </script>";
     } else {
         echo mysqli_error($db);
@@ -41,8 +41,7 @@ if( isset($_POST["register"]) ) {
                 <input type="password" name="password2" id="password2">
             </li>
             <li>
-                <button type="submit" name="register">Register</button><br>
-                Already Have An Account? Login <a href="login.php"> Here</a>
+                <button type="submit" name="register">Register</button>
             </li>
         </ul>
     </form>

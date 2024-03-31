@@ -51,7 +51,7 @@ if( isset($_POST["find"]) ) {
             <a href="ubah.php?id=<?= $bk["id_buku"]; ?>">ubah</a> |
             <a href="hapus.php?id=<?= $bk["id_buku"]; ?>" onclick="return confirm('You sure?');">hapus</a>
         </td>
-        <td><img src="img/<?= $bk["sampul"]; ?>" alt="" width="20%"></td>
+        <td><img src="img/<?= $bk["sampul"]; ?>" alt="" width="100%"></td>
         <td><?= $bk["judul"]; ?></td>
         <td><?= $bk["pengarang"]; ?></td>
         <td><?= $bk["penerbit"]; ?></td>

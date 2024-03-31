@@ -133,8 +133,7 @@ function find($keyword) {
             judul LIKE '%$keyword%' OR
             pengarang LIKE '%$keyword%' OR
             penerbit LIKE '%$keyword%' OR
-            genre LIKE '%$keyword%' OR
-            chapter LIKE '%$keyword%'
+            genre LIKE '%$keyword%'
             ";
     return query($query); 
 }
@@ -146,30 +145,12 @@ function registrasion($data) {
     $password = mysqli_real_escape_string($db, $data["password"]);
     $password2 = mysqli_real_escape_string($db, $data["password2"]);
 
-    // cek username udh ada atau belum
-    $result = mysqli_query($db, "SELECT username FROM users WHERE username = '$username'");
-    if( mysqli_fetch_assoc($result) ) {
-        echo "<script>
-        alert('username has been used!')</script>";
-        return false;
-    }
-
     if( $password !== $password2 ) {
         echo "<script>
-        alert('Confirm password is not the same!');
+        alert('konfirmasi password tidak sesuai');
         </script>";
-        return false;
+    } else {
+        echo mysqli_error($db);
     }
-    // enkripsi password
-    $password = password_hash($password, PASSWORD_DEFAULT);
-
-    // tambahkan userbaru ke database
-    mysqli_query($db, "INSERT INTO users VALUE('0', '$username', '$password')");
-
-    return mysqli_affected_rows($db);
-}
-
-function pindah($pindah) {
-    
 }
 ?>

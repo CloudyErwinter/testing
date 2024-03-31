@@ -1,11 +1,6 @@
 <?php
 require 'fuctions.php';
 $comic = query("SELECT * FROM data_comic");
-
-// tombol cari ditekan
-if( isset($_POST["find"]) ) {
-    $comic = find($_POST["keyword"]);
-}
 ?>
 
 <!DOCTYPE html>
@@ -22,21 +17,11 @@ if( isset($_POST["find"]) ) {
 <a href="tambah.php">Tambah data comic</a>
 <br><br>
 
-<form action="" method="post">
-
-    <input type="text" name="keyword" id="" size="30" autofocus 
-    placeholder="Put keyword name..." autocomplete="off">
-    <button type="submit" name="find">Find!</button>
-
-<br><br>
-</form>
-
 <table border="1" cellpadding="10" cellspacing="0">
 
     <tr>
         <th>No.</th>
         <th>Aksi</th>
-        <th>Sampul</th>
         <th>Judul</th>
         <th>Pengarang</th>
         <th>Penerbit</th>
@@ -51,7 +36,6 @@ if( isset($_POST["find"]) ) {
             <a href="ubah.php?id=<?= $bk["id_buku"]; ?>">ubah</a> |
             <a href="hapus.php?id=<?= $bk["id_buku"]; ?>" onclick="return confirm('You sure?');">hapus</a>
         </td>
-        <td><img src="img/<?= $bk["sampul"]; ?>" alt="" width="20%"></td>
         <td><?= $bk["judul"]; ?></td>
         <td><?= $bk["pengarang"]; ?></td>
         <td><?= $bk["penerbit"]; ?></td>

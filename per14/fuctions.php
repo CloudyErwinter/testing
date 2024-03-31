@@ -133,8 +133,7 @@ function find($keyword) {
             judul LIKE '%$keyword%' OR
             pengarang LIKE '%$keyword%' OR
             penerbit LIKE '%$keyword%' OR
-            genre LIKE '%$keyword%' OR
-            chapter LIKE '%$keyword%'
+            genre LIKE '%$keyword%'
             ";
     return query($query); 
 }
@@ -167,9 +166,5 @@ function registrasion($data) {
     mysqli_query($db, "INSERT INTO users VALUE('0', '$username', '$password')");
 
     return mysqli_affected_rows($db);
-}
-
-function pindah($pindah) {
-    
 }
 ?>

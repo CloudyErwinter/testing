@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'fuctions.php';
 
 if( isset($_POST["login"]) ) {
@@ -12,6 +13,8 @@ if( isset($_POST["login"]) ) {
         // cek password
         $row = mysqli_fetch_assoc($result);
         if( password_verify($password, $row["password"]) ) {
+            // cek session
+            $_SESSION["login"] = true;
             header("Location: index.php");
             exit;
         }
